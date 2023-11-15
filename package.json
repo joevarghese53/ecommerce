@@ -9,11 +9,21 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "react": "^18",
-    "react-dom": "^18",
-    "next": "14.0.2"
+    "@babel/core": "latest",
+    "@sanity/client": "latest",
+    "@sanity/image-url": "latest",
+    "@stripe/stripe-js": "latest",
+    "canvas-confetti": "latest",
+    "next": "latest",
+    "next-sanity-image": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "react-hot-toast": "latest",
+    "react-icons": "latest",
+    "stripe": "latest"
   },
   "devDependencies": {
+    "@babel/preset-react": "^7.23.3",
     "eslint": "^8",
     "eslint-config-next": "14.0.2"
   }
