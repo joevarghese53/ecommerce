@@ -29,8 +29,35 @@ width: 100%;
 .navbar-container{
   display: flex;
   justify-content: space-between;
-  margin: 6px 18px;
-  position: relative;
+  align-items: center;
+  padding: 15px;
+  background-color: #333; /* Adjust the background color as needed */
+  color: #fff; /* Adjust the text color as needed */
+}
+.customizable-tshirt {
+  width: 200px;
+  height: 300px;
+  border: 1px solid #ccc;
+  margin: 20px;
+  overflow: hidden; /* Ensure the image doesn't overflow the container */
+}
+
+.customizable-tshirt img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the image covers the entire container */
+  filter: brightness(80%) sepia(100%) hue-rotate(0deg); /* Adjust the filter properties as needed */
+}
+
+
+.customizable-tshirt::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff; /* Default background color, you can set it to transparent or any other color */
 }
 .marquee-text{
   font-size: 29px;
@@ -64,35 +91,40 @@ width: 100%;
     -webkit-text-stroke: 1px #f02d34;
     margin-left: 6px;
 }
-.logo{
-  color: gray;
-  font-size: 18px;
-
+.logo {
+  font-size: 24px;
+  font-weight: bold;
 }
-.cart-icon{
-  font-size: 25px;
-  color: gray;
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+.nav-links li {
+  font-size: 18px;
+}
+
+.cart-icon {
+  font-size: 24px;
+  color: #fff;
+  background-color: transparent;
+  border: none;
   cursor: pointer;
   position: relative;
-  transition: transform .4s ease;
-  border: none;
-  background-color: transparent;
 }
 .cart-icon:hover{
   transform: scale(1.1,1.1);
 }
-.cart-item-qty{
+.cart-item-qty {
   position: absolute;
-  right: -8px;
-  font-size: 12px;
-  color: #eee;
+  top: -5px;
+  right: -5px;
   background-color: #f02d34;
-  width: 18px;
-  height: 18px;
+  color: #fff;
+  font-size: 12px;
+  padding: 4px 8px;
   border-radius: 50%;
-  text-align: center;
-  font-weight: 600;
-
+  font-weight: bold;
 }
 .products-container{
   display: flex;
@@ -277,11 +309,11 @@ text-align: end;
 
 }
 .cart-container{
-  height: 100vh;
+  /* height: 100vh;
   width: 600px;
   background-color: white;
   float: right;
-  padding: 40px 10px;
+  padding: 40px 10px; */
   position: relative;
   
 }

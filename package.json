@@ -20,7 +20,8 @@
     "react-dom": "latest",
     "react-hot-toast": "latest",
     "react-icons": "latest",
-    "stripe": "latest"
+    "stripe": "latest",
+    "tinycolor2": "^1.6.0"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.23.3",
