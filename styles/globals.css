@@ -793,3 +793,67 @@ margin-top: 160px;
   margin: auto;
 }
 }
+/* cutomisations styling */
+/* cutomisations styling */
+/* cutomisations styling */
+.color-content {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.color-groups {
+  display: flex;
+  justify-content: center;
+}
+
+.color {
+  width: 30px;
+  height: 30px;
+  margin: 0 5px;
+  cursor: pointer;
+  border: 2px solid #000;
+  border-radius: 50%;
+}
+
+.color-white {
+  background-color: #fff;
+}
+
+.color-black {
+  background-color: #000;
+}
+
+.color-yellow {
+  background-color: #ffd700;
+}
+
+.color-blue {
+  background-color: #0000ff;
+}
+
+.color-red {
+  background-color: #ff0000;
+}
+
+.active-color {
+  border-color: #333;
+}
+
+.banner-content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.banner-right img {
+  max-width: 100%;
+  height: auto;
+}
+.MuiBox-root.css-1n3h4wo {
+  top: 364px;
+  position: absolute;
+  left: 0px;
+  width: 324px;
+  padding: 11px;
+}

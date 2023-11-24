@@ -1,139 +1,166 @@
-// // pages/customs.js
-// import React, { useState } from 'react';
-
-// const Customs = () => {
-//   const [tshirtColor, setTshirtColor] = useState('#ffffff'); // Default to white
-//   const [customText, setCustomText] = useState('');
-
-//   const handleColorChange = (color) => {
-//     setTshirtColor(color);
-//   };
-
-//   const handleTextChange = (e) => {
-//     setCustomText(e.target.value);
-//   };
-
-//   return (
-//     <div>
-//       <h1>Customize Your T-shirt</h1>
-
-//       {/* Display the customizable T-shirt */}
-//       <div
-//         className="customizable-tshirt"
-//         style={{
-//           backgroundColor: tshirtColor,
-//           width: '200px',
-//           height: '300px',
-//           border: '1px solid #ccc',
-//           display: 'flex',
-//           justifyContent: 'center',
-//           alignItems: 'center',
-//           position: 'relative',
-//         }}
-//       >
-//         <img
-//           src="/img/white.png" // Replace with the path to your T-shirt image
-//           alt="Customizable T-shirt"
-//           style={{
-//             width: '100%',
-//             height: '100%',
-//             objectFit: 'cover',
-//             filter: `brightness(80%) sepia(100%) hue-rotate(${tshirtColor}deg)`,
-//           }}
-//         />
-//         <p className="custom-text">{customText}</p>
-//       </div>
-
-//       {/* Color picker */}
-//       <label>Choose T-shirt Color:</label>
-//       <input type="color" value={tshirtColor} onChange={(e) => handleColorChange(e.target.value)} />
-
-//       {/* Text input */}
-//       <label>Custom Text:</label>
-//       <input type="text" value={customText} onChange={handleTextChange} />
-
-//       {/* You can add more customization options as needed */}
-//     </div>
-//   );
-// };
-
-// export default Customs;
-
-
-
-
-
-// pages/customs.js
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
+import Tabs from '@mui/material/Tabs';
+import Tab from '@mui/material/Tab';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+import BoxDrawing from '@/components/BoxDrawing';
 
-const Customs = () => {
-  const [tshirtColor, setTshirtColor] = useState('#ffffff'); // Default to white
-  const [customText, setCustomText] = useState('');
+const ColorSelector = ({ setNewColor }) => {
+  const colors = ['white', 'black', 'yellow', 'blue', 'red'];
+  const [activeColor, setActiveColor] = useState('white');
 
-  const handleColorChange = (color) => {
-    setTshirtColor(color);
-  };
-
-  const handleTextChange = (e) => {
-    setCustomText(e.target.value);
+  const handleColorClick = (color) => {
+    if (color !== activeColor) {
+      setActiveColor(color);
+      setNewColor(color);
+    }
   };
 
   return (
-    <div>
-      <h1>Customize Your T-shirt</h1>
-
-      {/* Display the customizable T-shirt */}
-      <div
-        className="customizable-tshirt"
-        style={{
-          backgroundColor: tshirtColor,
-          width: '200px',
-          height: '300px',
-          border: '1px solid #ccc',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          position: 'relative',
-        }}
-      >
-        <img
-          src="/img/white.png" // Replace with the path to your T-shirt image
-          alt="Customizable T-shirt"
-          style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-          }}
-        />
-        <div
-          className="color-overlay"
-          style={{
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            backgroundColor: tshirtColor,
-            opacity: 0.8, // Adjust the opacity as needed
-          }}
-        ></div>
-        <p className="custom-text">{customText}</p>
+    <div className="color-content">
+      <h3>select color</h3>
+      <div className="color-groups">
+        {colors.map((color) => (
+          <div
+            key={color}
+            className={`color color-${color} ${color === activeColor ? 'active-color' : ''}`}
+            onClick={() => handleColorClick(color)}
+          ></div>
+        ))}
       </div>
-
-      {/* Color picker */}
-      <label>Choose T-shirt Color:</label>
-      <input type="color" value={tshirtColor} onChange={(e) => handleColorChange(e.target.value)} />
-
-      {/* Text input */}
-      <label>Custom Text:</label>
-      <input type="text" value={customText} onChange={handleTextChange} />
-
-      {/* You can add more customization options as needed */}
     </div>
   );
 };
 
-export default Customs;
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
 
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`vertical-tabpanel-${index}`}
+      aria-labelledby={`vertical-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box sx={{ p: 3 }}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+    </div>
+  );
+}
+
+TabPanel.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired,
+};
+
+function a11yProps(index) {
+  return {
+    id: `vertical-tab-${index}`,
+    'aria-controls': `vertical-tabpanel-${index}`,
+  };
+}
+
+const App = () => {
+  const [boxDrawingValues, setBoxDrawingValues] = useState({
+    startX: 0,
+    startY: 0,
+    endX: 0,
+    endY: 0,
+  });
+
+  const [value, setValue] = useState(0);
+  const [activeColor, setActiveColor] = useState('white');
+  const [textareaValue, setTextareaValue] = useState('');
+
+  const setNewColor = (color) => {
+    setActiveColor(color);
+  };
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+  const handleTextareaChange = (e) => {
+    setTextareaValue(e.target.value);
+  };
+
+  const handleTextareaResize = (e) => {
+    e.target.style.height = '63px';
+    let scrollHeight = e.target.scrollHeight;
+    e.target.style.height = `${scrollHeight}px`;
+  };
+
+  const handleBoxDrawingValuesChange = (values) => {
+    setBoxDrawingValues(values);
+    console.log('BoxDrawing values:', values);
+  };
+
+  
+
+  const handleSubmit = () => {
+    console.log('Submitted Text:', textareaValue + activeColor + JSON.stringify(boxDrawingValues));
+    console.log('BoxDrawing values:', boxDrawingValues);
+  };
+
+  return (
+    <header>
+      <section className="banner-wrapper">
+        {/* image and color selector */}
+        <div className="centered-content">
+          {/* banner right */}
+          <div className="banner-content">
+            <div className="banner-right">
+            <BoxDrawing imageUrl={`./img/tshirt_${activeColor}.jpg`} onValuesChange={handleBoxDrawingValuesChange} />
+            </div>
+            {/* color selector */}
+            <ColorSelector setNewColor={setNewColor} />
+          </div>
+        </div>
+
+        {/* tabs */}
+        <Box sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex', height: 224 }}>
+          <Tabs
+            orientation="vertical"
+            variant="scrollable"
+            value={value}
+            onChange={handleChange}
+            aria-label="Vertical tabs example"
+            sx={{ borderRight: 1, borderColor: 'divider' }}
+          >
+            <Tab label="Item One" {...a11yProps(0)} />
+            <Tab label="Item Two" {...a11yProps(1)} />
+            <Tab label="Item Three" {...a11yProps(2)} />
+          </Tabs>
+          <TabPanel value={value} index={0}>
+            Item One
+          </TabPanel>
+          <TabPanel value={value} index={1}>
+            <div className="wrapper">
+              <textarea
+                spellCheck="false"
+                placeholder="Type something here..."
+                value={textareaValue}
+                onChange={handleTextareaChange}
+                onKeyUp={handleTextareaResize}
+              ></textarea>
+              <button onClick={handleSubmit}>Submit</button>
+            </div>
+          </TabPanel>
+          <TabPanel value={value} index={2}>
+            Item Three
+          </TabPanel>
+        </Box>
+      </section>
+    </header>
+  );
+};
+
+export default App;
 
 
