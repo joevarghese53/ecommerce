@@ -5,6 +5,8 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import BoxDrawing from '@/components/BoxDrawing';
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
+import SmartToyIcon from '@mui/icons-material/SmartToy';
 
 const ColorSelector = ({ setNewColor }) => {
   const colors = ['white', 'black', 'yellow', 'blue', 'red'];
@@ -103,9 +105,13 @@ const App = () => {
 
   
 
+
   const handleSubmit = () => {
-    console.log('Submitted Text:', textareaValue + activeColor + JSON.stringify(boxDrawingValues));
-    console.log('BoxDrawing values:', boxDrawingValues);
+    var a=Object.values(boxDrawingValues)
+    var temp=textareaValue.replace(/ /g, '_') +" "+ activeColor+" "+a[0]+"_"+a[1]+"_"+a[2]+"_"+a[3];
+    console.log(temp);
+
+    
   };
 
   return (
@@ -127,18 +133,17 @@ const App = () => {
         <Box sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex', height: 224 }}>
           <Tabs
             orientation="vertical"
-            variant="scrollable"
+            variant="standard"
             value={value}
             onChange={handleChange}
             aria-label="Vertical tabs example"
             sx={{ borderRight: 1, borderColor: 'divider' }}
           >
-            <Tab label="Item One" {...a11yProps(0)} />
-            <Tab label="Item Two" {...a11yProps(1)} />
-            <Tab label="Item Three" {...a11yProps(2)} />
+            <Tab icon={<CloudUploadIcon />} label="Upload File" {...a11yProps(1)} />
+            <Tab icon={<SmartToyIcon />} label="Generate" {...a11yProps(2)} />
           </Tabs>
           <TabPanel value={value} index={0}>
-            Item One
+            Upload
           </TabPanel>
           <TabPanel value={value} index={1}>
             <div className="wrapper">

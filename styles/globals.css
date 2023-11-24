@@ -801,14 +801,24 @@ margin-top: 160px;
   margin-top: 20px;
 }
 
+.color-content h3{
+  position: relative;
+  top: 200px;
+  right: 140%;
+}
+
 .color-groups {
   display: flex;
   justify-content: center;
+  margin-top: 10px;
+  position: relative;
+  top: 200px;
+  right: 140%;
 }
 
 .color {
-  width: 30px;
-  height: 30px;
+  width: 60px;
+  height: 60px;
   margin: 0 5px;
   cursor: pointer;
   border: 2px solid #000;
@@ -849,6 +859,9 @@ margin-top: 160px;
 .banner-right img {
   max-width: 100%;
   height: auto;
+  position: relative;
+  top: 100px;
+  left: 200px;
 }
 .MuiBox-root.css-1n3h4wo {
   top: 364px;
@@ -857,3 +870,35 @@ margin-top: 160px;
   width: 324px;
   padding: 11px;
 }
+.wrapper textarea {
+  padding: 10px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+.wrapper button {
+  background-color: #f02d34;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.wrapper button:hover {
+  background-color: #c0212d; /* Darker shade when hovered */
+}
+.wrapper .TabPanel {
+  padding: 20px;
+}
+
+.wrapper textarea,
+.wrapper button {
+  margin-top: 20px;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
