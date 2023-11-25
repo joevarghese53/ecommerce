@@ -127,10 +127,12 @@ const App = () => {
         return response.text(); // You can use response.text() if the server returns plain text
       })
       .then(data => {
-        var html_code =data
+        var html_code = data;
         var regex = /src="(.*?)"\sclass=/;
         var match = html_code.match(regex);
-        console.log(match)
+  
+        // Assuming match[1] contains the base64 image
+        console.log( match[1])
       })
       .catch(error => {
         console.error('Error:', error);
