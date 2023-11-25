@@ -127,8 +127,10 @@ const App = () => {
         return response.text(); // You can use response.text() if the server returns plain text
       })
       .then(data => {
-        console.log('Success:', data);
-        // Handle the success response from the server
+        var html_code =data
+        var regex = /src="(.*?)"\sclass=/;
+        var match = html_code.match(regex);
+        console.log(match)
       })
       .catch(error => {
         console.error('Error:', error);
