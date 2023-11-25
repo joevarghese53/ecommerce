@@ -107,12 +107,35 @@ const App = () => {
 
 
   const handleSubmit = () => {
-    var a=Object.values(boxDrawingValues)
-    var temp=textareaValue.replace(/ /g, '_') +" "+ activeColor+" "+a[0]+"_"+a[1]+"_"+a[2]+"_"+a[3];
-    console.log(temp);
-
+    const boxDrawingValuesArray = Object.values(boxDrawingValues);
+    const formattedBoxDrawingValues = boxDrawingValuesArray.join('_');
+    const formattedTextareaValue = textareaValue.replace(/ /g, '_');
     
+    const postData = `prompt-input=${formattedTextareaValue} ${activeColor} ${formattedBoxDrawingValues}`;
+  
+    fetch('https://a449-34-74-127-0.ngrok-free.app/submit-prompt', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: postData,
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.text(); // You can use response.text() if the server returns plain text
+      })
+      .then(data => {
+        console.log('Success:', data);
+        // Handle the success response from the server
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        // Handle errors
+      });
   };
+  
 
   return (
     <header>
