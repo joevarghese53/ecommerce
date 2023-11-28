@@ -902,3 +902,76 @@ margin-top: 160px;
   align-items: center;
 }
 
+@media screen and (max-width: 1200px) {
+  .imagecomponent {
+    left: 200px; /* Adjust as needed */
+  }
+
+  .colorselector {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .imagecomponent {
+    left: 0;
+    top: 0;
+    width: 100%; /* Adjust as needed */
+    height: auto;
+  }
+
+  .color-content h2 {
+    top: 0;
+  }
+
+  .color-groups {
+    top: 0;
+    height: auto;
+    flex-wrap: wrap;
+  }
+
+  .color {
+    width: 40px;
+    height: 40px;
+  }
+
+  .colorselector {
+    margin-top: 20px;
+  }
+
+  .wrapper {
+    width: 100%;
+  }
+
+  .wrapper textarea,
+  .wrapper button {
+    width: 100%;
+  }
+
+  .hero-banner-container h1 {
+    font-size: 30px;
+  }
+
+  .hero-banner-container h3 {
+    font-size: 20px;
+  }
+
+  .hero-banner-container button {
+    margin-top: 30px;
+  }
+
+  .banner-desc .left h3 {
+    font-size: 40px; /* Adjust as needed */
+    margin-left: 5px;
+  }
+
+  .banner-desc .right h3 {
+    font-size: 35px; /* Adjust as needed */
+  }
+
+  .banner-desc .right p {
+    font-size: 16px;
+  }
+}
