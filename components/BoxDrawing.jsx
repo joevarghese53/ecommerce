@@ -35,9 +35,9 @@ const BoxDrawing = ({ imageUrl, onValuesChange }) => {
     <div
       ref={containerRef}
       style={{
-        position: 'relative',
-        width: '100%',
-        height: '100vh',
+        position: 'absolute',
+        width: 'auto',
+        height: 'auto',
       }}
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
@@ -47,7 +47,7 @@ const BoxDrawing = ({ imageUrl, onValuesChange }) => {
         id="tshirtImage"
         src={imageUrl}
         alt="Your Image"
-        style={{ width: '100%', height: 'auto' }}
+        style={{ width: 'auto', height: 'auto' }}
       />
 
       {isDragging && (

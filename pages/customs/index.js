@@ -21,7 +21,7 @@ const ColorSelector = ({ setNewColor }) => {
 
   return (
     <div className="color-content">
-      <h3>select color</h3>
+      <h2>select color</h2>
       <div className="color-groups">
         {colors.map((color) => (
           <div
@@ -144,19 +144,19 @@ const App = () => {
   return (
     <header>
       <section className="banner-wrapper">
-        {/* image and color selector */}
-        <div className="centered-content">
-          {/* banner right */}
-          <div className="banner-content">
-            <div className="banner-right">
-            <BoxDrawing imageUrl={`./img/tshirt_${activeColor}.jpg`} onValuesChange={handleBoxDrawingValuesChange} />
-            </div>
-            {/* color selector */}
-            <ColorSelector setNewColor={setNewColor} />
-          </div>
-        </div>
 
-        {/* tabs */}
+
+        <div className="imagecomponent">
+          <BoxDrawing imageUrl={`./img/tshirt_${activeColor}.jpg`} onValuesChange={handleBoxDrawingValuesChange} />
+        </div>
+        <div className="colorselector">
+          <ColorSelector setNewColor={setNewColor} />
+        </div>
+          
+
+
+
+        {/* TABS */}
         <Box sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex', height: 224 }}>
           <Tabs
             orientation="vertical"
@@ -188,6 +188,10 @@ const App = () => {
             Item Three
           </TabPanel>
         </Box>
+        {/* TABS-END */}
+
+
+
       </section>
     </header>
   );
