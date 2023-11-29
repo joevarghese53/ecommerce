@@ -112,7 +112,7 @@ const App = () => {
     const formattedBoxDrawingValues = boxDrawingValuesArray.join('_');
     const formattedTextareaValue = textareaValue.replace(/ /g, '_');
     
-    const postData = `prompt-input=${formattedTextareaValue} ${activeColor} ${formattedBoxDrawingValues}`;
+    const postData = `prompt-input=${formattedTextareaValue} yellow ${formattedBoxDrawingValues}`;
   
     fetch('https://d010-34-42-234-158.ngrok-free.app/submit-prompt', {
       method: 'POST',
