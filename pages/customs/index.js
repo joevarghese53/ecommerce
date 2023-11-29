@@ -79,6 +79,7 @@ const App = () => {
   const [value, setValue] = useState(0);
   const [activeColor, setActiveColor] = useState('white');
   const [textareaValue, setTextareaValue] = useState('');
+  const [imageData, setImageData] = useState(null);
 
   const setNewColor = (color) => {
     setActiveColor(color);
@@ -113,7 +114,7 @@ const App = () => {
     
     const postData = `prompt-input=${formattedTextareaValue} ${activeColor} ${formattedBoxDrawingValues}`;
   
-    fetch('https://eb56-34-132-47-197.ngrok-free.app//submit-prompt', {
+    fetch('https://c858-35-203-181-157.ngrok-free.app/submit-prompt', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -133,6 +134,8 @@ const App = () => {
   
         // Assuming match[1] contains the base64 image
         console.log( match[1])
+
+        setImageData(match[1]);
       })
       .catch(error => {
         console.error('Error:', error);
@@ -145,13 +148,23 @@ const App = () => {
     <header>
       <section className="banner-wrapper">
 
+        <div className='both-image'>
+          <div className="imagecomponent">
+            <BoxDrawing imageUrl={`./img/tshirt_${activeColor}.jpg`} onValuesChange={handleBoxDrawingValuesChange} />
+          </div>
 
-        <div className="imagecomponent">
-          <BoxDrawing imageUrl={`./img/tshirt_${activeColor}.jpg`} onValuesChange={handleBoxDrawingValuesChange} />
+          <div className="generated-image">
+          {imageData ? (
+            <img src={`${imageData}`} alt="Generated Image" />
+          ) : (
+            <div>Loading...</div>
+          )}
+          </div>
         </div>
         <div className="colorselector">
           <ColorSelector setNewColor={setNewColor} />
         </div>
+        
           
 
 
