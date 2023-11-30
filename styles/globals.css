@@ -800,32 +800,41 @@ margin-top: 160px;
   display: flex;
 }
 .color-content {
+  border: solid;
+  top: -50px;
   text-align: center;
   margin-top: 20px;
+  position: relative;
+  border-radius: 12px;
+  border-width: thin;
 }
 
 .color-content h2{
+    /* border: dashed; */
+
   position: relative;
-  top: 50px;
+  top: 20px;
 }
 
 .color-groups {
+  /* border: dashed; */
   display: flex;
   justify-content: center;
   margin-top: 10px;
   position: relative;
-  top: 50px;
-  height: 100px;
+  top: 20px;
+  height: 100px
+  ;
   
 }
 
 .color {
-  width: 60px;
-  height: 60px;
+  width: 30px;
+  height: 30px;
   margin: 0 5px;
   cursor: pointer;
-  border: 2px solid #000;
-  border-radius: 50%;
+  border: 1px solid #000;
+  /* border-radius: 50%; */
 }
 
 .color-white {
@@ -891,12 +900,14 @@ margin-top: 160px;
   padding: 11px;
 }
 .wrapper textarea {
+  border-radius: 4px;
   padding: 10px;
   font-size: 16px;
   line-height: 1.5;
+  resize: none;
 }
 .wrapper button {
-  background-color: #f02d34;
+  background-color: #eb3c42;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -922,6 +933,29 @@ margin-top: 160px;
   align-items: center;
 }
 
+.file-upload button{
+  background-color: #eb3c42;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+}
+.file-upload button:hover {
+  background-color: #c0212d; 
+} 
+ .file-upload input,
+.file-upload button{
+  margin-top: 20px;
+}
+
+
+.image-preview img{
+  margin-top: 10px;
+  width: 100px;
+  height: 100px;
+} 
 
 /* Add this CSS at the end of your existing CSS */
 
@@ -955,6 +989,11 @@ margin-top: 160px;
     display: table;
     clear: both;
   }
+  .Filepicker{
+    width: 100%;
+    border: dashed;
+  }
+  
 
   .wrapper textarea {
     width: 100%;

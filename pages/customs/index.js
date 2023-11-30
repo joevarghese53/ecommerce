@@ -7,6 +7,7 @@ import Box from '@mui/material/Box';
 import BoxDrawing from '@/components/BoxDrawing';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import SmartToyIcon from '@mui/icons-material/SmartToy';
+import ColorLensIcon from '@mui/icons-material/ColorLens';
 
 const ColorSelector = ({ setNewColor }) => {
   const colors = ['white', 'black', 'yellow', 'blue', 'red'];
@@ -21,7 +22,7 @@ const ColorSelector = ({ setNewColor }) => {
 
   return (
     <div className="color-content">
-      <h2>select color</h2>
+      <h4>SELECT COLOR</h4>
       <div className="color-groups">
         {colors.map((color) => (
           <div
@@ -80,6 +81,7 @@ const App = () => {
   const [activeColor, setActiveColor] = useState('white');
   const [textareaValue, setTextareaValue] = useState('');
   const [imageData, setImageData] = useState(null);
+  const [selectedFile, setSelectedFile] = useState(null);
 
   const setNewColor = (color) => {
     setActiveColor(color);
@@ -104,16 +106,16 @@ const App = () => {
     console.log('BoxDrawing values:', values);
   };
 
-  
+
 
 
   const handleSubmit = () => {
     const boxDrawingValuesArray = Object.values(boxDrawingValues);
     const formattedBoxDrawingValues = boxDrawingValuesArray.join('_');
     const formattedTextareaValue = textareaValue.replace(/ /g, '_');
-    
+
     const postData = `prompt-input=${formattedTextareaValue} ${activeColor} ${formattedBoxDrawingValues}`;
-  
+
     fetch('https://bcba-35-197-28-183.ngrok-free.app/submit-prompt', {
       method: 'POST',
       headers: {
@@ -131,9 +133,9 @@ const App = () => {
         var html_code = data;
         var regex = /src="(.*?)"\sclass=/;
         var match = html_code.match(regex);
-  
+
         // Assuming match[1] contains the base64 image
-        console.log( match[1])
+        console.log(match[1])
 
         setImageData(match[1]);
       })
@@ -142,7 +144,12 @@ const App = () => {
         // Handle errors
       });
   };
-  
+
+  const handleFileChange = (e) => {
+    setSelectedFile(e.target.files[0]);
+  };
+ 
+
 
   return (
     <header>
@@ -153,24 +160,18 @@ const App = () => {
             <BoxDrawing imageUrl={`./img/tshirt_${activeColor}.jpg`} onValuesChange={handleBoxDrawingValuesChange} />
           </div>
 
-          <div className="generated-image">
-          {imageData ? (
-            <img src={`${imageData}`} alt="Generated Image" />
-          ) : (
-            <div>Loading...</div>
-          )}
+          <div className="generated-image" >
+            {imageData ? (
+              <img src={`${imageData}`} alt="Generated Image" />
+            ) : (
+              <div>Loading...</div>
+            )}
           </div>
         </div>
-        <div className="colorselector">
-          <ColorSelector setNewColor={setNewColor} />
-        </div>
-        
-          
-
-
 
         {/* TABS */}
         <Box sx={{ flexGrow: 1, bgcolor: 'background.paper', display: 'flex', height: 224 }}>
+         <div>
           <Tabs
             orientation="vertical"
             variant="standard"
@@ -178,14 +179,36 @@ const App = () => {
             onChange={handleChange}
             aria-label="Vertical tabs example"
             sx={{ borderRight: 1, borderColor: 'divider' }}
+
           >
+
             <Tab icon={<CloudUploadIcon />} label="Upload File" {...a11yProps(1)} />
-            <Tab icon={<SmartToyIcon />} label="Generate" {...a11yProps(2)} />
+            <Tab icon= {<ColorLensIcon/>}label="Color Selector" {...a11yProps(2)} />
+
+            <Tab icon={<SmartToyIcon />} label="Generate" {...a11yProps(3)} />
+
           </Tabs>
+          </div>
           <TabPanel value={value} index={0}>
-            Upload
+            <span className="file-upload">
+              <input type="file" onChange={handleFileChange} />
+              {selectedFile && (
+                <div className="image-preview">
+                  <img src={URL.createObjectURL(selectedFile)} alt="Preview" />
+                </div>
+              )}
+              <button >Submit</button>
+            </span>
           </TabPanel>
+
+
           <TabPanel value={value} index={1}>
+            <div className="colorselector">
+              <ColorSelector setNewColor={setNewColor} />
+            </div>
+          </TabPanel>
+
+          <TabPanel value={value} index={2}>
             <div className="wrapper">
               <textarea
                 spellCheck="false"
@@ -197,9 +220,8 @@ const App = () => {
               <button onClick={handleSubmit}>Submit</button>
             </div>
           </TabPanel>
-          <TabPanel value={value} index={2}>
-            Item Three
-          </TabPanel>
+
+
         </Box>
         {/* TABS-END */}
 
@@ -211,5 +233,3 @@ const App = () => {
 };
 
 export default App;
-
-
