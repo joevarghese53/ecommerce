@@ -183,7 +183,7 @@ const App = () => {
           >
 
             <Tab icon={<CloudUploadIcon />} label="Upload File" {...a11yProps(1)} />
-            <Tab icon= {<ColorLensIcon/>}label="Color Selector" {...a11yProps(2)} />
+            <Tab icon= {<ColorLensIcon/>}label="Select Color" {...a11yProps(2)} />
 
             <Tab icon={<SmartToyIcon />} label="Generate" {...a11yProps(3)} />
 
