@@ -34,31 +34,6 @@ width: 100%;
   background-color: #333; /* Adjust the background color as needed */
   color: #fff; /* Adjust the text color as needed */
 }
-.customizable-tshirt {
-  width: 200px;
-  height: 300px;
-  border: 1px solid #ccc;
-  margin: 20px;
-  overflow: hidden; /* Ensure the image doesn't overflow the container */
-}
-
-.customizable-tshirt img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Ensure the image covers the entire container */
-  filter: brightness(80%) sepia(100%) hue-rotate(0deg); /* Adjust the filter properties as needed */
-}
-
-
-.customizable-tshirt::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #ffffff; /* Default background color, you can set it to transparent or any other color */
-}
 .marquee-text{
   font-size: 29px;
   font-weight: 600;
@@ -869,7 +844,7 @@ margin-top: 160px;
 }
 
 .imagecomponent {
-  width: 100px;
+  width: 400px;
   height: 500px;
   position: relative;
   top: 100px;
@@ -878,12 +853,19 @@ margin-top: 160px;
 }
 
 .generated-image{
-  width: 100px;
-  height: 700px;
+  width: 400px;
+  height: 630px;
   position: relative;
   top: 100px;
-  left: 900px;
+  left: 550px;
   float: left;
+}
+.imagecomponent img,
+.generated-image img {
+  max-width: 100%; /* Set the maximum width to 100% of the parent container */
+  max-height: 100%; /* Set the maximum height to 100% of the parent container */
+  width: auto; /* Ensure that the width is responsive */
+  height: auto; /* Ensure that the height is responsive */
 }
 
 .both-image::after{

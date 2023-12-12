@@ -116,7 +116,7 @@ const App = () => {
 
     const postData = `prompt-input=${formattedTextareaValue} ${activeColor} ${formattedBoxDrawingValues}`;
 
-    fetch('https://bcba-35-197-28-183.ngrok-free.app/submit-prompt', {
+    fetch('https://b729-34-71-203-48.ngrok-free.app/submit-prompt', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -164,7 +164,7 @@ const App = () => {
             {imageData ? (
               <img src={`${imageData}`} alt="Generated Image" />
             ) : (
-              <div>Loading...</div>
+              <img src={`./img/tshirt_${activeColor}.jpg`} alt="Generated Image" />
             )}
           </div>
         </div>
