@@ -63,6 +63,7 @@ const BoxDrawing = ({ imageUrl, onValuesChange ,imggg }) => {
         src={imageUrl}
         alt="Your Image"
         style={{ width: 'auto', height: 'auto'}}
+        draggable="false"
       />
      {/* </TransformComponent>
       </TransformWrapper> */}

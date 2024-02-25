@@ -127,7 +127,7 @@ const App = () => {
 
     const postData = `prompt-input=${formattedTextareaValue} ${activeColor} ${formattedBoxDrawingValues}`;
 
-    fetch('https://b70d-34-125-194-181.ngrok-free.app/submit-prompt', {
+    fetch('https://7fb2-35-233-183-26.ngrok-free.app/submit-prompt', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -177,7 +177,7 @@ const App = () => {
               // <Dragg upload={selectedFile} back={`./img/${activeColor}_tshirt.png`} />
               
               <React.Fragment>
-                {!selectedFile  && <img src={`./img/${activeColor}_tshirt.png`} alt="Generated Image" />}
+                {!selectedFile  && <img src={`./img/${activeColor}_tshirt.png`} alt="Generated Image" draggable="false" />}
                 {selectedFile && (
                   <div style={{ position: 'absolute', top: 0, left: 0 }}>
                     <Dragg upload={selectedFile} back={`./img/${activeColor}_tshirt.png`} />
