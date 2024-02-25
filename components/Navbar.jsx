@@ -12,7 +12,7 @@ const Navbar = () => {
   return (
     <div className="navbar-container">
       <div className="logo">
-        <Link href="/">DGen Apparels</Link>
+        <Link href="/">JAGE</Link>
       </div>
 
       <ul className="nav-links">
