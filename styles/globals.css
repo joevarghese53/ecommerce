@@ -998,6 +998,46 @@ margin-top: 160px;
   height: 100px;
 } 
 
+
+
+/* TShirtExchange.css */
+
+.tshirt-exchange {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+}
+
+.exchange-form {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input {
+  width: 50px;
+  margin: 0 10px;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.exchangebutton {
+  position: absolute;
+  left: 50%;
+}
+
 /* Add this CSS at the end of your existing CSS */
 
 /* Responsive Styles */
