@@ -9,6 +9,7 @@ import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import SmartToyIcon from '@mui/icons-material/SmartToy';
 import ColorLensIcon from '@mui/icons-material/ColorLens';
 import Dragg from '@/components/dragg';
+import { useRouter } from 'next/router';
 
 
 
@@ -77,6 +78,7 @@ function a11yProps(index) {
 
 const App = () => {
   const [imageUrl, setImageUrl] = useState(null);
+  const router = useRouter();
 
   const [boxDrawingValues, setBoxDrawingValues] = useState({
     startX: 0,
@@ -119,6 +121,13 @@ const App = () => {
     setSelectedFile(URL.createObjectURL(e.target.files[0]));
   };
 
+  const gotoexchange = (e) => {
+    
+    router.push({
+      pathname: '/exchange',
+    });
+  };
+
 
   const handleSubmit = () => {
     const boxDrawingValuesArray = Object.values(boxDrawingValues);
@@ -127,7 +136,7 @@ const App = () => {
 
     const postData = `prompt-input=${formattedTextareaValue} ${activeColor} ${formattedBoxDrawingValues}`;
 
-    fetch('https://7fb2-35-233-183-26.ngrok-free.app/submit-prompt', {
+    fetch('https://3ba7-34-172-77-48.ngrok-free.app/submit-prompt', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
@@ -243,6 +252,11 @@ const App = () => {
           </TabPanel>
         </Box>
         {/* TABS-END */}
+      </section>
+      <section>
+        <div>
+        <button className='exchangebutton' onClick={gotoexchange} >Exchange</button>
+        </div>
       </section>
     </header>
   );
