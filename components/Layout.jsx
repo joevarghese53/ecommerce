@@ -1,8 +1,8 @@
 import React from 'react';
 import Head from 'next/head';
-
-import Navbar from './Navbar';
 import Footer from './Footer';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Navbar } from '.';
 
 const Layout = ({ children }) => {
   return (
@@ -10,9 +10,7 @@ const Layout = ({ children }) => {
       <Head>
         <title>DGen Store</title>
       </Head>
-      <header>
-        <Navbar />
-      </header>
+        <Navbar/>
       <main className="main-container">
         {children}
       </main>
