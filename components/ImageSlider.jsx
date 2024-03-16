@@ -54,7 +54,8 @@ export function ImageSlider({ media, heroBanner }) {
       <div className="hero-banner-container">
 
         <div>
-          <Link href={`/product/${heroBanner.product}`}>
+          <Link href={`/customs`}>
+          {/* product/${heroBanner.product} */}
             <button type="button">{heroBanner.buttonText}</button>
           </Link>
           <div className="desc">

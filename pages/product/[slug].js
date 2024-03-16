@@ -18,6 +18,9 @@ const ProductDetails = ({ product, products }) => {
 
   return (
     <div>
+      <div className="customs-header">
+        {/* Header content goes here */}
+      </div>
       <div className="product-detail-container">
         <div>
           <div className="image-container">

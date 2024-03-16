@@ -10,7 +10,9 @@ const Layout = ({ children }) => {
       <Head>
         <title>DGen Store</title>
       </Head>
-        <Navbar/>
+      <header>
+        <Navbar />
+      </header>
       <main className="main-container">
         {children}
       </main>

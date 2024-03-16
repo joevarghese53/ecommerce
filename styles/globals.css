@@ -465,8 +465,8 @@ text-align: end;
   align-items: center;
   gap: 10px;
   justify-content: center;
-
 }
+
 .footer-container .icons{
   font-size: 30px;
   display: flex;
@@ -1009,6 +1009,13 @@ margin-top: 160px;
 /* cutomisations styling */
 /* cutomisations styling */
 /* cutomisations styling */
+
+.customs-header{
+  position: relative;
+  top:0;
+  height: 120px;
+  background-color: rgb(255, 255, 255); /* Frosted glass effect when active */
+}
 .header {
   display: flex;
 }
@@ -1106,11 +1113,19 @@ margin-top: 160px;
   height: auto; /* Ensure that the height is responsive */
 }
 
+.both-image{
+  position: relative;
+  top: 130px;
+  left: 160px;
+}
+
 .both-image::after{
   content: "";
   clear: both;
   display: table;
 }
+
+
 
 .MuiBox-root.css-1n3h4wo {
   top: 364px;

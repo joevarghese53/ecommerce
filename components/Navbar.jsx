@@ -28,7 +28,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <div className={navbar || router.pathname === '/customs' ? "navbar-container active" : "navbar-container"}>
+    <div className={router.pathname === '/' && !navbar ? "navbar-container" : "navbar-container active"} >
       <div className="logo">
         <Link href="/">JAGE</Link>
       </div>

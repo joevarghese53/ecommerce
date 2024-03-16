@@ -195,6 +195,7 @@ const App = () => {
               </React.Fragment>
             )}
           </div>
+         
 
         </div>
 
@@ -253,11 +254,11 @@ const App = () => {
         </Box>
         {/* TABS-END */}
       </section>
-      <section>
+      {/* <section>
         <div>
         <button className='exchangebutton' onClick={gotoexchange} >Exchange</button>
         </div>
-      </section>
+      </section> */}
     </header>
   );
 };
