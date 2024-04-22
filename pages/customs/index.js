@@ -161,7 +161,7 @@ const App = () => {
         console.log(match[1])
 
         setImageData(match[1]);
-            setanimbool(true)
+            setanimbool(false)
 
       })
       .catch(error => {
@@ -186,7 +186,7 @@ const App = () => {
                 wrapperStyle={{
                   position: 'absolute',
                   top: '50%',
-                  left: '60%',
+                  left: '50%',
                   transform: 'translate(-50%, -50%)',
                 }}
                 colors={['#306cce', '#72a1ed']}
