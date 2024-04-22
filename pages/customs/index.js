@@ -10,6 +10,7 @@ import SmartToyIcon from '@mui/icons-material/SmartToy';
 import ColorLensIcon from '@mui/icons-material/ColorLens';
 import Dragg from '@/components/dragg';
 import { useRouter } from 'next/router';
+import { Hourglass } from 'react-loader-spinner'
 
 
 
@@ -93,6 +94,7 @@ const App = () => {
   const [imageData, setImageData] = useState(null);
   const [selectedFile, setSelectedFile] = useState(null);
   const [boxtrue, setboxtrue] = useState(false);
+  const [animbool, setanimbool] = useState(false)
 
   const setNewColor = (color) => {
     setActiveColor(color);
@@ -130,6 +132,7 @@ const App = () => {
 
 
   const handleSubmit = () => {
+    setanimbool(true)
     const boxDrawingValuesArray = Object.values(boxDrawingValues);
     const formattedBoxDrawingValues = boxDrawingValuesArray.join('_');
     const formattedTextareaValue = textareaValue.replace(/ /g, '_');
@@ -158,6 +161,8 @@ const App = () => {
         console.log(match[1])
 
         setImageData(match[1]);
+            setanimbool(true)
+
       })
       .catch(error => {
         console.error('Error:', error);
@@ -171,6 +176,23 @@ const App = () => {
           <div className="imagecomponent">
             <BoxDrawing imageUrl={`./img/${activeColor}_tshirt.png`} onValuesChange={handleBoxDrawingValuesChange} imggg={boxtrue} />
           </div>
+  {animbool && (
+            <div className="loader">
+              <Hourglass
+                visible={true}
+                height="80"
+                width="80"
+                ariaLabel="hourglass-loading"
+                wrapperStyle={{
+                  position: 'absolute',
+                  top: '50%',
+                  left: '60%',
+                  transform: 'translate(-50%, -50%)',
+                }}
+                colors={['#306cce', '#72a1ed']}
+              />
+            </div>
+          )}
           <div className="generated-image" style={{ position: 'relative' }}>
             {imageData ? (
               <React.Fragment>
