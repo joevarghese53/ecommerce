@@ -186,7 +186,7 @@ const App = () => {
                 wrapperStyle={{
                   position: 'absolute',
                   top: '50%',
-                  left: '50%',
+                  left: '43%',
                   transform: 'translate(-50%, -50%)',
                 }}
                 colors={['#306cce', '#72a1ed']}
