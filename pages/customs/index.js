@@ -139,7 +139,7 @@ const App = () => {
 
     const postData = `prompt-input=${formattedTextareaValue} ${activeColor} ${formattedBoxDrawingValues}`;
 
-    fetch('https://e77c-34-125-107-69.ngrok-free.app/submit-prompt', {
+    fetch('https://439f-34-125-203-112.ngrok-free.app/submit-prompt', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
