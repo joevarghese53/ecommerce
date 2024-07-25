@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import { useLoginMutation } from "../redux/api/usersApiSlice";
 import { setCredentials } from "../redux/features/auth/authSlice";
 import { useDispatch, useSelector } from "react-redux";
+// import axios from 'axios';
 
 const slide1 = '/img/LoginPageImage.jpg';
 
@@ -17,6 +18,8 @@ const LoginPage = () => {
 
   const [login] = useLoginMutation();
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const handleInputChange = (e) => {
     const { id, value } = e.target;
     setUser({ ...user, [id]: value });
@@ -25,10 +28,15 @@ const LoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
-
+    setIsLoading(true);
     try {
       const response = await login({ email: user.email, password: user.password }).unwrap();
-
+      // const response = await axios.post('http://localhost:5000/api/users/auth', {
+      //   email: user.email,
+      //   password: user.password
+      // }, {
+      //   withCredentials: true // Include credentials with this request
+      // });
       console.log('User logged in successfully:', response.data);
       dispatch(setCredentials({ ...response }));
       // Redirect to home page
@@ -36,6 +44,7 @@ const LoginPage = () => {
     } catch (error) {
       console.error('Error logging in user:', error.response ? error.response.data : error.message);
       setError(error.response ? error.response.data.message : 'An error occurred');
+      setIsLoading(false);
     }
   };
 
@@ -61,7 +70,12 @@ const LoginPage = () => {
             onChange={handleInputChange}
             placeholder="Enter your password"
           />
-          <button type="submit">Sign In</button>
+          <button
+            
+            type="submit"
+          >
+            {isLoading ? "Signing In..." : "Sign In"}
+          </button>
         </form>
         <p>Don't have an account? <Link id='signup' href="/RegisterPage">Sign up</Link></p>
       </div>

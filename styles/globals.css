@@ -691,22 +691,24 @@ span.text-red {
   justify-content: space-between;
 }
 
-.cart-icon {
-  margin: 0px 15px;
-}
+
 
 .cart-icon {
+  margin: 0px 15px;
   font-size: 24px;
   color: #000000;
   background-color: transparent;
   border: none;
   cursor: pointer;
   position: relative;
+  
 }
 
 .cart-icon:hover {
   transform: scale(1.1, 1.1);
 }
+
+
 
 .cart-item-qty {
   position: absolute;
@@ -719,6 +721,67 @@ span.text-red {
   border-radius: 50%;
   font-weight: bold;
 }
+
+.login-icon{
+  position: absolute;
+  top: 12px;
+  right: -5px;
+  font-size: 13px;
+  font-weight: 800;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.profile-icon {
+  position: relative;
+  margin: 0px 15px;
+  font-size: 24px;
+  color: #000000;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  width: 180px;
+}
+
+.dropdown-menu a,
+.dropdown-menu button {
+  display: block;
+  padding: 10px 20px;
+  color: black;
+  text-decoration: none;
+  border-bottom: 1px solid #eaeaea;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+}
+
+.dropdown-menu a:hover,
+.dropdown-menu button:hover {
+  background-color: #504f4f;
+}
+
+.dropdown-menu button {
+  background: none;
+  border: none;
+}
+
+.profile-icon:hover .dropdown-menu {
+  display: block;
+}
+
+
 
 /* Media queries for responsiveness */
 @media (max-width: 768px) {
@@ -1552,6 +1615,15 @@ form input {
 
 /* LoginPage.js end */
 
+
+/* ProfilePage.js start */
+
+.profile-page {
+  position: relative;
+  top: 50px;
+}
+
+/* ProfilePage.js start */
 
 .cancel {
   cursor: pointer;
