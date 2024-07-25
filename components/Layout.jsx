@@ -3,8 +3,11 @@ import Head from 'next/head';
 import Footer from './Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Navbar } from '.';
+import useInitializeUser from '../components/useInitializeUser'; 
+
 
 const Layout = ({ children }) => {
+  useInitializeUser();
   return (
     <div className="layout">
       <Head>

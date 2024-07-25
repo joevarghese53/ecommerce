@@ -5,11 +5,15 @@ import { useStateContext } from '../context/StateContext';
 import { Cart } from './';
 import { IoMdPerson } from "react-icons/io";
 import Link from 'next/link';
+import { useSelector, useDispatch } from "react-redux";
+
 
 
 
 const Navbar = () => {
-  const router = useRouter(); // Initialize the useRouter hook
+  const { userInfo } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+  const router = useRouter(); 
   const [scrolling, setScrolling] = React.useState(false);
   const { showCart, setShowCart, totalQuantities } = useStateContext();
 
@@ -91,6 +95,11 @@ const Navbar = () => {
         </div>
 
         <div className="bottom-right-links">
+        {userInfo ? (
+            <span className="text-black">{userInfo.username}</span>
+          ) : (
+            <></>
+          )}
           <Link href="/CartPage">
             <div className="cart-icon">
               <AiOutlineShoppingCart />
