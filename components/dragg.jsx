@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 
 function Dragg({ upload ,back}) {
-  
+
   const [canvas, setCanvas] = useState(null);
   const canvasRef = useRef(null);
   const router = useRouter();
@@ -20,7 +20,7 @@ function Dragg({ upload ,back}) {
   }
 
 
-  
+
   useEffect(() => {
     // Simulate fetching the dynamicProductSlug asynchronously
     // In a real scenario, replace this with actual fetching logic
@@ -44,8 +44,8 @@ function Dragg({ upload ,back}) {
   useEffect(() => {
     const newCanvas = new fabric.Canvas(canvasRef.current);
     setCanvas(newCanvas);
-    
-  
+
+
     // Cleanup function
     return () => {
       console.log("dispose")
@@ -60,14 +60,14 @@ function Dragg({ upload ,back}) {
           canvas.setBackgroundImage(img, canvas.renderAll.bind(canvas));
         });
       }
-      
+
     }, [canvas, back]);
 
   useEffect(() => {
-   
+
     // Ensure canvas is defined before attempting to clear it
     if (canvas) {
-  
+
       var deleteIcon = "./img/dustbin.png";
 
   var imgg = document.createElement('img');
@@ -76,7 +76,7 @@ function Dragg({ upload ,back}) {
       // canvas.clear();
 
       // Load an image
-      
+
       fabric.Image.fromURL(upload, (img) => {
         // Retrieve saved properties from localStorage
         const properties = { left: 150, top: 120, scaleX: 0.1 , scaleY: 0.1 };
@@ -93,8 +93,8 @@ function Dragg({ upload ,back}) {
           img.setCoords();
 
           // Save the new position and scale to localStorage
-         
-          
+
+
           fabric.Object.prototype.controls.deleteControl = new fabric.Control({
             x: 0.5,
             y: -0.5,
@@ -104,7 +104,7 @@ function Dragg({ upload ,back}) {
             render: renderIcon,
             cornerSize: 24
           });
-      
+
           function deleteObject(eventData, transform) {
             const target = transform.target;
             const canvas = target.canvas;
@@ -119,24 +119,24 @@ function Dragg({ upload ,back}) {
             ctx.drawImage(imgg, -size/2, -size/2, size, size);
             ctx.restore();
           }
-        
+
           canvas.renderAll();
         });
       });
-      
-     
+
+
     }
-    
-  
-   
-    
-    
+
+
+
+
+
   }, [canvas,upload]); 
-  
+
   const handleButtonClick = () => {
     const mergedImageURL = canvas.toDataURL('image/png');
     cproductDetails.cimage=mergedImageURL
-    
+
     router.push({
       pathname: '/dynamic-product/[slug1]',
       query: {
@@ -151,9 +151,9 @@ function Dragg({ upload ,back}) {
       <canvas ref={canvasRef} width={400} height={400} ></canvas>
       <div className='finalise'>         
             <button type='button' className='finalise-button' onClick={() => { handleButtonClick();  }}>VIEW PRODUCT</button>
-          
+
         </div>
-     
+
     </>
   );
 }

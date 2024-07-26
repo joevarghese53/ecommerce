@@ -122,13 +122,7 @@ const Navbar = () => {
               <IoMdPerson />
               {dropdownOpen && (
                 <div className="dropdown-menu">
-                  <Link href="/profile">Profile</Link>
-                  {userInfo.isAdmin && (
-                    <>
-                      <Link href="/admin">Admin</Link>
-                      <Link href="/orders">Orders</Link>
-                    </>
-                  )}
+                  <Link href="/ProfilePage">Profile</Link>
                   <button onClick={handleLogout}>Logout</button>
                 </div>
               )}

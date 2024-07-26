@@ -4,6 +4,11 @@ import { AiOutlineMinus, AiOutlinePlus, AiFillStar, AiOutlineStar } from 'react-
 import { Product } from '../../components';
 import { useStateContext } from '../../context/StateContext';
 import { client, urlFor } from '../../lib/client';
+import SizeSelector from '../../components/SizeSelector';
+import Link from 'next/link';
+import PinCodeCheck from '@/components/PinCodeCheck';
+import ProductInfo from '../../components/ProductInfo';
+
 
 const DynamicProductPage = () => {
   const router = useRouter();
@@ -17,53 +22,49 @@ const DynamicProductPage = () => {
 
 
 return (
-  <div>
+  <div className='dynamic-product-main-container'>
     <div className="product-detail-container">
       <div>
         <div className="custom-image-container">
         <img src={cimage} alt={cname} />
       </div>
-        {/* <div className="small-images-container">
-          {image?.map((item, i) => (
-            <img 
-              key={i}
-              src={urlFor(item)}
-              className={i === index ? 'small-image selected-image' : 'small-image'}
-              onMouseEnter={() => setIndex(i)}
-            />
-          ))}
-        </div> */}
-      </div>
+    </div>
 
       <div className="product-detail-desc">
         <h1>{cname}</h1>
         <div className="reviews">
-          <div>
-            <AiFillStar />
-            <AiFillStar />
-            <AiFillStar />
-            <AiFillStar />
-            <AiOutlineStar />
+            <div className='rating'>
+              <AiFillStar />
+            </div>
+            <p>
+              5.0
+            </p>
           </div>
-          <p>
-            (20)
-          </p>
-        </div>
-        <h4>Details: </h4>
-        <p>{cdetails}</p>
-        <p className="price">₹{cprice}</p>
-        <div className="quantity">
-          <h3>Quantity:</h3>
-          <p className="quantity-desc">
-            <span className="minus" onClick={decQty}><AiOutlineMinus /></span>
-            <span className="num">{qty}</span>
-            <span className="plus" onClick={incQty}><AiOutlinePlus /></span>
-          </p>
-        </div>
-        <div className="buttons">
-          <button type="button" className="add-to-cart" >Add to Cart</button>
-          <button type="button" className="buy-now">Buy Now</button>
-        </div>
+          <p className="price">₹599</p>
+          <p className="tax">Inclusive of all taxes</p>
+          <div className="size-chart">
+            <SizeSelector />
+          </div>
+          <div className="quantity">
+            <h3>Quantity:</h3>
+            <p className="quantity-desc">
+              <span className="minus" onClick={decQty}><AiOutlineMinus /></span>
+              <span className="num">{qty}</span>
+              <span className="plus" onClick={incQty}><AiOutlinePlus /></span>
+            </p>
+          </div>
+          <div className="buttons">
+            <button type="button" className="add-to-cart" onClick={() => onAdd(product, qty)}>Add to Cart</button>
+            <Link href="/CartPage">
+            <div className="buy-now">Go to cart</div>
+            </Link>
+          </div>
+          <PinCodeCheck />
+          <div className="product-details">
+          <ProductInfo title="Offers" content= "No offers available" />
+          <ProductInfo title="Product Description" content= "Material : Cotton" />
+          <ProductInfo title="15 Days Returns & Exchange" content="Return is not available on this item" />
+          </div>
       </div>
     </div>
 

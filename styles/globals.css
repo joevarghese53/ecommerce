@@ -701,7 +701,7 @@ span.text-red {
   border: none;
   cursor: pointer;
   position: relative;
-  
+
 }
 
 .cart-icon:hover {
@@ -722,7 +722,7 @@ span.text-red {
   font-weight: bold;
 }
 
-.login-icon{
+.login-icon {
   position: absolute;
   top: 12px;
   right: -5px;
@@ -1618,12 +1618,278 @@ form input {
 
 /* ProfilePage.js start */
 
-.profile-page {
+
+.account-container {
+  padding: 20px;
+  text-align: center;
   position: relative;
-  top: 50px;
+  height: 790px;
+  top: 142px;
 }
 
-/* ProfilePage.js start */
+.account-heading {
+  font-size: 2em;
+  margin-bottom: 20px;
+  border-bottom: 2px solid yellow;
+  display: inline-block;
+}
+
+.account-nav {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  position: relative;
+  top: 33px;
+}
+
+.account-navItem {
+  font-size: 1.2em;
+  text-decoration: none;
+  color: black;
+  padding: 32px 0px;
+  width: 190px;
+  height: 126px;
+  box-shadow: 0 5px 15px rgb(89 86 86);
+  transition: box-shadow 0.3s ease-in-out;
+  /* Smooth transition for shadow */
+}
+
+.account-navItem:last-child {
+  border-right: none;
+}
+
+
+/* ProfilePage.js end */
+
+
+/* UsersList.js start  */
+
+.user-list-container {
+  padding: 16px;
+}
+
+.user-list-heading {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.user-list-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-list-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.user-list-table th,
+.user-list-table td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.btn-blue {
+  margin-left: 8px;
+  background-color: #3b82f6;
+  color: white;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.btn-red {
+  background-color: #ef4444;
+  color: white;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+.text-green-500 {
+  color: green;
+}
+
+.text-red-500 {
+  color: red;
+}
+
+.ml-4 {
+  margin-left: 1rem;
+}
+
+
+/* UsersList.js end  */
+
+/* CategoryList.js start */
+
+.container {
+  margin-left: 10rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: 133px;
+  height: 767px;
+}
+
+.container.md {
+  flex-direction: row;
+
+}
+
+.content {
+  width: 100%;
+  padding: 1rem;
+}
+
+.content.md {
+  width: 75%;
+}
+
+.heading {
+  height: 3rem;
+}
+
+.button {
+  background-color: white;
+  border: 1px solid #ec4899;
+  color: #ec4899;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  margin: 0.75rem;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.button:hover {
+  background-color: #ec4899;
+  color: white;
+}
+
+.button:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.25rem rgba(236, 72, 153, 0.5);
+}
+
+
+/* CategoryList.js end */
+
+/* CategoryForm.jsx start */
+
+.form-container {
+  padding: 1rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.input {
+  padding: 0.75rem 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.5rem;
+  width: 100%;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  height: 100px;
+}
+
+.button-submit {
+  background-color: #ec4899;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s;
+}
+
+.button-submit:hover {
+  background-color: #db2777;
+}
+
+.button-submit:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.25rem rgba(236, 72, 153, 0.5);
+}
+
+.button-delete {
+  background-color: #ef4444;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s;
+}
+
+.button-delete:hover {
+  background-color: #dc2626;
+}
+
+.button-delete:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.25rem rgba(239, 68, 68, 0.5);
+}
+
+/* CategoryForm.jsx end */
+
+
+/* Modal.jsx start */
+
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 50;
+}
+
+.modal-container {
+  position: fixed;
+  top: 40%;
+  right: 50%;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  z-index: 10;
+  text-align: right;
+  transform: translate(50%, -50%);
+}
+
+.modal-close-button {
+  color: black;
+  font-weight: 600;
+  transition: color 0.3s;
+  margin-right: 0.5rem;
+}
+
+.modal-close-button:hover {
+  color: #4a5568;
+}
+
+.modal-close-button:focus {
+  outline: none;
+}
+
+/* Modal.jsx end */
+.dynamic-product-main-container {
+  position: relative;
+    top: 173px;
+    height: 1100px;
+}
 
 .cancel {
   cursor: pointer;
@@ -2168,6 +2434,157 @@ form input {
 /* cutomisations styling */
 /* cutomisations styling */
 
+/* new */
+
+/* App container to set the display to flex */
+.app-container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Tabs container to set the width and background color */
+.tabs {
+  position: relative;
+  top: 40%;
+  display: flex;
+  flex-direction: row;
+  width: 392px;
+  background-color: #ffffff;
+  border-right: 1px solid #ddd;
+  height: 228px;
+}
+
+.tabs-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+.react-tabs__tab {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-bottom: 1px solid #ddd;
+  color: #333;
+  background-color: #f7f7f7;
+  transition: background-color 0.2s;
+}
+
+.react-tabs__tab--selected {
+  border-color: #ddd;
+  background-color: #fff;
+  font-weight: bold;
+  color: #306cce;
+  width: 135px;
+}
+
+.react-tabs__tab:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.react-tabs__tab>div {
+  margin-top: 5px;
+}
+
+/* Tab panels to take the full width */
+.tab-panel {
+  display: none;
+}
+
+.tab-panel--selected {
+  display: block;
+  width: 255px;
+  padding: 0px;
+  margin-left: 23px;
+  position: relative;
+  top: 44px;
+}
+
+#prompt-submit-button {
+  margin-left: 60px;
+  margin-top: 13px;
+  background-color: red;
+  width: 104px;
+  height: 46px;
+  border-radius: 10px;
+  font-size: larger;
+  font-family: sans-serif;
+}
+
+/* Custom styles for color options and prompt input */
+.color-options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.color-options button {
+  display: block;
+  margin-bottom: 10px;
+  padding: 10px;
+  width: 100px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.color-options button:hover {
+  background-color: #f0f0f0;
+}
+
+.color-options button:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+input[type="file"] {
+  width: 100%;
+  padding: 10px;
+}
+
+input[type="text"] {
+  width: calc(100% - 22px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #000;
+  border-radius: 7px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #306cce;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #2553a3;
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Adjust the main content section to fill the remaining space */
+.banner-wrapper {
+  flex: 1;
+  padding: 20px;
+}
+
+
+/* new */
+
 .customs-header {
   position: relative;
   top: 0;
@@ -2182,7 +2599,7 @@ form input {
 
 .color-content {
   border: solid;
-  top: -50px;
+  left: 20px;
   text-align: center;
   margin-top: 20px;
   position: relative;
@@ -2253,7 +2670,6 @@ form input {
   height: 500px;
   position: relative;
   top: 100px;
-  left: 300px;
   float: left;
 }
 
@@ -2262,7 +2678,7 @@ form input {
   height: 630px;
   position: relative;
   top: 100px;
-  left: 550px;
+  left: 272px;
   float: left;
 }
 
@@ -2281,7 +2697,7 @@ form input {
 .both-image {
   position: relative;
   top: 130px;
-  left: 160px;
+  left: 16px;
 }
 
 .both-image::after {

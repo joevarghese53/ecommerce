@@ -25,7 +25,7 @@ const BoxDrawing = ({ imageUrl, onValuesChange ,imggg }) => {
   const handleMouseMove = (e) => {
     if (isDragging) {
       const containerRect = containerRef.current.getBoundingClientRect();
-    
+
 
       setEndX(e.clientX - containerRect.left);
       setEndY(e.clientY - containerRect.top);
@@ -38,16 +38,16 @@ const BoxDrawing = ({ imageUrl, onValuesChange ,imggg }) => {
   };
 
   return (
-    
+
     <div 
       ref={containerRef}
       style={{
         position: 'absolute',
         width: 'auto',
         height: 'auto',
-       
+
       }}
-      
+
       onMouseDown={imggg ? handleMouseDown : undefined}
       onMouseMove={imggg ? handleMouseMove : undefined}
       onMouseUp={imggg ? handleMouseUp : undefined}
@@ -58,7 +58,7 @@ const BoxDrawing = ({ imageUrl, onValuesChange ,imggg }) => {
       <TransformComponent */}
       {/* wrapperStyle={{ backgroundColor: "lightblue",border: "2px solid red" }}> */}
       <img
-      
+
         id="tshirtImage"
         src={imageUrl}
         alt="Your Image"
@@ -67,7 +67,7 @@ const BoxDrawing = ({ imageUrl, onValuesChange ,imggg }) => {
       />
      {/* </TransformComponent>
       </TransformWrapper> */}
-      
+
       {imggg && isDragging && (
         <div
           style={{
@@ -82,7 +82,7 @@ const BoxDrawing = ({ imageUrl, onValuesChange ,imggg }) => {
         />
       )}
     </div>
-  
+
   );
 };
 

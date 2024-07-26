@@ -12,12 +12,7 @@ import Link from 'next/link';
 const ProductDetails = ({ product, products }) => {
   const { image, name, details, price, category, offers, returnpolicy } = product;
   const [index, setIndex] = useState(0);
-  const { decQty, incQty, qty, onAdd, setShowCart } = useStateContext();
-
-  const handleBuyNow = () => {
-
-    setShowCart(true);
-  }
+  const { decQty, incQty, qty, onAdd } = useStateContext();
 
   return (
     <div>
@@ -53,7 +48,7 @@ const ProductDetails = ({ product, products }) => {
             </p>
           </div>
           <p className="price">₹{price}</p>
-          <p className="tax">inclusive of all taxes</p>
+          <p className="tax">Inclusive of all taxes</p>
           <div className="size-chart">
             <SizeSelector />
           </div>
