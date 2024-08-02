@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { ArrowBigLeft, ArrowBigRight, Circle, CircleDot } from "lucide-react";
 import Link from 'next/link';
 
-export function ImageSlider({ media, heroBanner }) {
+export function ImageSlider({ media }) {
   const [mediaIndex, setMediaIndex] = useState(0);
 
   function showNextMedia() {
@@ -55,11 +55,10 @@ export function ImageSlider({ media, heroBanner }) {
 
         <div>
           <Link href={`/customs`}>
-          {/* product/${heroBanner.product} */}
-            <button type="button">{heroBanner.buttonText}</button>
+            <button type="button">Explore</button>
           </Link>
           <div className="desc">
-            <p>{heroBanner.desc}</p>
+            Wear Your Own Style
           </div>
 
         </div>

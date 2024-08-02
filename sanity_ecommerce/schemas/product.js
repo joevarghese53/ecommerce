@@ -50,6 +50,37 @@ export default {
         name: 'returnpolicy',
         title: 'Returnpolicy',
         type: 'string',
-      }
+      },
+      {
+        name: 'reviews',
+        title: 'Reviews',
+        type: 'array',
+        of: [
+          {
+            type: 'object',
+            fields: [
+              {
+                name: 'name',
+                title: 'Name',
+                type: 'string',
+              },
+              {
+                name: 'rating',
+                title: 'Rating',
+                type: 'number',
+                options: {
+                  list: [1, 2, 3, 4, 5],
+                  layout: 'radio',
+                },
+              },
+              {
+                name: 'comment',
+                title: 'Comment',
+                type: 'text',
+              },
+            ],
+          },
+        ],
+      },
     ]
   }

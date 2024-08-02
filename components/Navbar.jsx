@@ -15,7 +15,7 @@ const Navbar = () => {
   const router = useRouter();
   const [scrolling, setScrolling] = React.useState(false);
   const [dropdownOpen, setDropdownOpen] = React.useState(false);
-  const { showCart, setShowCart, totalQuantities } = useStateContext();
+ 
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -75,7 +75,8 @@ const Navbar = () => {
         </div>
         <div className="top-right-links">
           <Link href="/track-order">Track Order</Link>
-          <Link href="/contact-us">Contact Us</Link>
+          <Link href="/ContactUs">Contact Us</Link>
+          <Link href="/Policies">Policies</Link>
         </div>
       </div>
       <div className="red-line"></div>
@@ -110,7 +111,7 @@ const Navbar = () => {
           <Link href="/CartPage">
             <div className="cart-icon">
               <AiOutlineShoppingCart />
-              <span className="cart-item-qty">{totalQuantities}</span>
+              {/* <span className="cart-item-qty">{totalQuantities}</span> */}
             </div>
           </Link>
           {userInfo ? (
@@ -136,7 +137,6 @@ const Navbar = () => {
           )}
         </div>
       </div>
-      {showCart && <Cart />}
     </div>
   );
 };

@@ -26,6 +26,7 @@ const ProfilePage = () => {
             <Link href="/UsersList" className="account-navItem">Users</Link>
             <Link href="#" className="account-navItem">Orders</Link>
             <Link href="/CategoryList" className="account-navItem">Categories</Link>
+            <Link href="/AdminProductPage" className="account-navItem">Products</Link>
             <Link href="/UpdateProfile" className="account-navItem">My Profile</Link>
             <Link href="#" className="account-navItem">Marketing and Promotions</Link>
             <Link href="#" className="account-navItem">Customer Support</Link>

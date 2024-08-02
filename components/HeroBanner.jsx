@@ -16,7 +16,7 @@ const video1 = '/videos/video-01.mp4';
 const video2 = '/videos/video-02.mp4';
 const video3 = '/videos/video-03.mp4';
 
-const HeroBanner = ({ heroBanner }) => {
+const HeroBanner = () => {
   const media = [
     // { type: 'video', url: video1, alt: "video1" },
     { type: 'image', url: slide1, alt: "slide1" },
@@ -34,7 +34,7 @@ const HeroBanner = ({ heroBanner }) => {
         margin: "0 auto",
       }}
     >
-      <ImageSlider media={media} heroBanner={heroBanner} />
+      <ImageSlider media={media}  />
     </div>
   );
 };
